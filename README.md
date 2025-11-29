@@ -63,7 +63,7 @@ I plan to execute these steps to complete my project.
 [DONE] Step 2: Problem parsing and intent extraction 
 + Extract forecasting target, horizon, frequency, and constraints from user input
 
-[TODO] Step 3: Semantic retrieval and RAG integration 
+[DONE] Step 3: Semantic retrieval and RAG integration 
 + Retrieve relevant modeling guidelines using semantic search
 
 [TODO] Step 4: LangGraph workflow construction
