@@ -7,7 +7,7 @@ In this course, we have primarily learned Langgraph. This is helpful tool to bui
 - Prompting
 - Structured Output 
 - Semantic Search
-- Retreaval Augmented Generation (RAG)
+- Retrieval Augmented Generation (RAG)
 - Tool calling LLMs & MCP
 - Langgraph: State, Nodes, Graph
 
@@ -22,27 +22,58 @@ The first purpose of the capstone project is to give a chance to revise all the 
 
 -------------------------
 
-# Project report Template
+# Project Report 
 
-## Title: [your title goes here]
+## Title: Financial Forecasting Strategy Assistant
 
 ## Overview
 
-[your overview goes here. My project does this that  etc]
+This project implements a financial forecasting strategy assistant using LangGraph and LangChain.
+Given a natural language forecasting problem (e.g. inflation forecasting, stock return prediction, volatility modeling), the assistant proposes a detailed modeling strategy rather than performing numerical forecasts.
+The assistant:
+1. Interprets the forecasting objective
+2. Suggests appropriate modeling approaches (regression, time-series, machine learning, neural networks)
+3. Specifies data requirements and preprocessing steps
+4. Explains feature engineering, regularization, and evaluation metrics
+5. Provides interpretation guidelines
+6. Supports follow-up analytical questions
+7. The system emphasizes structured reasoning, traceability, and modular design, making it suitable for complex analytical workflows.
 
 ## Reason for picking up this project
 
-Expain how this project is aligned with this course content.
++ This project is designed to revise and apply the key concepts taught in MAT496:
++ Prompting structured output using schema-based responses
++ LangGraph for multi-step reasoning with explicit state and nodes
++ Tool-based LLM usage for controllable analysis 
++ LangSmith for tracing and debugging LLM-driven pipelines
++ Retrieval-Augmented Generation (RAG) for injecting domain knowledge
++ Semantic search over modeling guidelines
++ Financial forecasting problems are inherently unstructured and multi-step, making them well-suited for LangGraph-based approaches.
 
 ## Plan
 
-I plan to excecute these steps to complete my project.
+I plan to execute these steps to complete my project.
 
-- [TODO] Step 1 involves blah blah
-- [TODO] Step 2 involves blah blah
-- [TODO] Step 3 involves blah blah
-- ...
-- [TODO] Step n involves blah blah
+[TODO] Step 1: Initialize LLM, LangSmith tracing, and structured output schemas
++ Configure the LLM with finance-appropriate parameters
++ Enable LangSmith tracing for debugging and inspection 
++ Define structured output schemas for forecasting problems and modeling plans
++ Centralize configuration to be reused across all LangGraph nodes
+
+[TODO] Step 2: Problem parsing and intent extraction 
++ Extract forecasting target, horizon, frequency, and constraints from user input
+
+[TODO] Step 3: Semantic retrieval and RAG integration 
++ Retrieve relevant modeling guidelines using semantic search
+
+[TODO] Step 4: LangGraph workflow construction
++ Define graph state, nodes, and transitions
+
+[TODO] Step 5: Strategy validation and synthesis 
++ Validate model assumptions and synthesize final recommendations
+
+[TODO] Step 6: Streamlit application for interactive usage 
++ Build a simple user-facing interface
 
 ## Conclusion:
 
