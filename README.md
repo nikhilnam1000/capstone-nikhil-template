@@ -60,7 +60,7 @@ I plan to execute these steps to complete my project.
 + Define structured output schemas for forecasting problems and modeling plans
 + Centralize configuration to be reused across all LangGraph nodes
 
-[TODO] Step 2: Problem parsing and intent extraction 
+[DONE] Step 2: Problem parsing and intent extraction 
 + Extract forecasting target, horizon, frequency, and constraints from user input
 
 [TODO] Step 3: Semantic retrieval and RAG integration 
@@ -86,7 +86,7 @@ I had planned to achieve {this this}. I think I have/have-not achieved the concl
 - This is a `solo assignment`. Each of you will work alone. You are free to talk, discuss with chatgpt, but you are responsible for what you submit. Some students may be called for viva. You should be able to each and every line of work submitted by you.
 
 - `commit` History maintenance.
-  - Fork this respository and build on top of that.
+  - Fork this repository and build on top of that.
   - For every step in your plan, there has to be a commit.
   - Change [TODO] to [DONE] in the plan, before you commit after that step. 
   - The commit history should show decent amount of work spread into minimum two dates. 
