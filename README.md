@@ -54,7 +54,7 @@ The assistant:
 
 I plan to execute these steps to complete my project.
 
-[TODO] Step 1: Initialize LLM, LangSmith tracing, and structured output schemas
+[DONE] Step 1: Initialize LLM, LangSmith tracing, and structured output schemas
 + Configure the LLM with finance-appropriate parameters
 + Enable LangSmith tracing for debugging and inspection 
 + Define structured output schemas for forecasting problems and modeling plans
