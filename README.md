@@ -77,6 +77,8 @@ I plan to execute these steps to complete my project.
 [DONE] Step 7: Streamlit application for interactive usage 
 + Build a simple user-facing interface
 
+Video Link: https://drive.google.com/drive/u/0/folders/11mRv8pqEV7xlpcLMZbiGmnLrDenTIybdç
+
 ## Conclusion:
 
 I had planned to achieve building a model that takes a particular situation, analyses it and tells the user the best way to go on about building a model and all the things to keep in mind to execute. I think I have scratched the surface of this problem statement, but I believe it needs a lot more detail and more concrete explanations. 
