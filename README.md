@@ -72,7 +72,9 @@ I plan to execute these steps to complete my project.
 [DONE] Step 5: Strategy validation and synthesis 
 + Validate model assumptions and synthesize final recommendations
 
-[TODO] Step 6: Streamlit application for interactive usage 
+[DONE] Step 6: External context augmentation using Tavily Search
+
+[TODO] Step 7: Streamlit application for interactive usage 
 + Build a simple user-facing interface
 
 ## Conclusion:
