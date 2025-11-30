@@ -77,7 +77,7 @@ I plan to execute these steps to complete my project.
 [DONE] Step 7: Streamlit application for interactive usage 
 + Build a simple user-facing interface
 
-Video Link: https://drive.google.com/drive/u/0/folders/11mRv8pqEV7xlpcLMZbiGmnLrDenTIybdç
+Video Link: https://drive.google.com/drive/u/0/folders/11mRv8pqEV7xlpcLMZbiGmnLrDenTIybd
 
 ## Conclusion:
 
