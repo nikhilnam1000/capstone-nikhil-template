@@ -12,6 +12,14 @@ from langgraph.graph import StateGraph, END
 from parsing_node import parse_forecasting_problem
 from retrieval_node import retrieve_modeling_guidelines
 from pprint import pprint
+from strategy_node import plan_strategy
+
+def append_list_reducer(old, new):
+    if old is None:
+        return new
+    if new is None:
+        return old
+    return old + new
 
 class ForecastGraphState(TypedDict):
     """
@@ -20,31 +28,26 @@ class ForecastGraphState(TypedDict):
     user_query: str
     parsed_problem: Optional[Any]
     retrieved_context: Optional[List[Dict[str, Any]]]
+    modeling_plan: Optional[Dict[str, Any]]
+    clarification_questions: Optional[List[str]]
 
 
-graph_builder = StateGraph(ForecastGraphState)
-
-graph_builder.add_node(
-    "parse_problem",
-    parse_forecasting_problem
+graph_builder = StateGraph(
+    ForecastGraphState,
+    reducers={
+        "clarification_questions": append_list_reducer
+    }
 )
 
-graph_builder.add_node(
-    "retrieve_knowledge",
-    retrieve_modeling_guidelines
-)
+graph_builder.add_node("parse_problem", parse_forecasting_problem)
+graph_builder.add_node("retrieve_knowledge", retrieve_modeling_guidelines)
+graph_builder.add_node("plan_strategy", plan_strategy)
 
 graph_builder.set_entry_point("parse_problem")
 
-graph_builder.add_edge(
-    "parse_problem",
-    "retrieve_knowledge"
-)
-
-graph_builder.add_edge(
-    "retrieve_knowledge",
-    END
-)
+graph_builder.add_edge("parse_problem","retrieve_knowledge")
+graph_builder.add_edge("retrieve_knowledge", "plan_strategy")
+graph_builder.add_edge("plan_strategy", END)
 
 graph = graph_builder.compile()
 

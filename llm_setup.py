@@ -39,6 +39,7 @@ class ForecastProblem(BaseModel):
     data_frequency: Optional[str]
     domain: str
     constraints: Optional[List[str]]
+    horizon_assumed: bool = False
 
 class ModelingPlan(BaseModel):
     """
@@ -56,11 +57,14 @@ PROBLEM_PARSER_SYSTEM_PROMPT = """
 You are a financial modeling expert.
 Extract forecasting problem details precisely.
 Return output strictly in the specified schema.
+If the forecasting horizon is not explicitly stated by the user,
+infer a reasonable default and set horizon_assumed = true.
+If the user explicitly specifies a horizon, set horizon_assumed = false.
 """
 
 STRATEGY_SYSTEM_PROMPT = """
 You are a quantitative finance advisor.
-Propose modeling strategies, not predictions.
+Propose detailed modeling strategies, not predictions.
 Do not provide numerical forecasts or trading advice.
 """
 
