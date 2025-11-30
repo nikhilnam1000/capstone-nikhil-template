@@ -13,15 +13,11 @@ from langsmith import traceable
 from llm_setup import (
     ForecastProblem,
     PROBLEM_PARSER_SYSTEM_PROMPT,
-    invoke_llm,
+    llm,
 )
 
 @traceable(name="parse_forecasting_problem")
 def parse_forecasting_problem(state: Dict[str, Any]) -> Dict[str, Any]:
-    """
-    Extracts a structured ForecastProblem from raw user input.
-    Expects `state` to contain a `user_query` field.
-    """
     if "user_query" not in state:
         raise ValueError("State must contain `user_query`.")
 
@@ -30,12 +26,10 @@ def parse_forecasting_problem(state: Dict[str, Any]) -> Dict[str, Any]:
         HumanMessage(content=state["user_query"]),
     ]
 
-    response = invoke_llm(messages)
+    structured_llm = llm.with_structured_output(ForecastProblem)
 
     try:
-        parsed_problem = ForecastProblem.model_validate_json(
-            response.content
-        )
+        parsed_problem = structured_llm.invoke(messages)
     except Exception as e:
         raise ValueError(
             f"Failed to parse forecasting problem: {e}"

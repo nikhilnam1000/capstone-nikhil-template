@@ -15,6 +15,9 @@ from typing import List, Optional
 from pydantic import BaseModel
 from langchain_openai import ChatOpenAI
 from langsmith import traceable
+from dotenv import load_dotenv
+
+load_dotenv()
 
 os.environ["LANGSMITH_PROJECT"] = "financial-forecast-assistant"
 os.environ["LANGSMITH_TRACING"] = "true"
