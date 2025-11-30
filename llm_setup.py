@@ -12,7 +12,7 @@ consistent configuration and traceability.
 import os
 from typing import List, Optional
 
-from pydantic import BaseModel
+from pydantic import BaseModel, field_validator
 from langchain_openai import ChatOpenAI
 from langsmith import traceable
 from dotenv import load_dotenv
@@ -40,6 +40,13 @@ class ForecastProblem(BaseModel):
     domain: str
     constraints: Optional[List[str]]
     horizon_assumed: bool = False
+
+    @field_validator("forecasting_horizon", mode="before")
+    @classmethod
+    def normalize_null_horizon(cls, v):
+        if v in ("null", "None", "", None):
+            return None
+        return v
 
 class ModelingPlan(BaseModel):
     """

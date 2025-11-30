@@ -7,3 +7,4 @@ langsmith
 openai
 faiss-cpu
 python-dotenv
+streamlit

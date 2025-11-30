@@ -14,6 +14,7 @@ from retrieval_node import retrieve_modeling_guidelines
 from pprint import pprint
 from strategy_node import plan_strategy
 from external_search_node import external_context_search
+from final_response_node import synthesize_response
 
 def append_list_reducer(old, new):
     if old is None:
@@ -32,6 +33,7 @@ class ForecastGraphState(TypedDict):
     modeling_plan: Optional[Dict[str, Any]]
     clarification_questions: Optional[List[str]]
     external_context: Optional[list[dict]]
+    final_explanation: Optional[str]
 
 graph_builder = StateGraph(
     ForecastGraphState,
@@ -44,20 +46,22 @@ graph_builder.add_node("parse_problem", parse_forecasting_problem)
 graph_builder.add_node("retrieve_knowledge", retrieve_modeling_guidelines)
 graph_builder.add_node("plan_strategy", plan_strategy)
 graph_builder.add_node("external_search", external_context_search)
+graph_builder.add_node("synthesize_response", synthesize_response)
 
 graph_builder.set_entry_point("parse_problem")
 
 graph_builder.add_edge("parse_problem","retrieve_knowledge")
 graph_builder.add_edge("retrieve_knowledge", "plan_strategy")
 graph_builder.add_edge("plan_strategy", "external_search")
-graph_builder.add_edge("external_search", END)
+graph_builder.add_edge("external_search", "synthesize_response")
+graph_builder.add_edge("synthesize_response", END)
 
 graph = graph_builder.compile()
 
 
 if __name__ == "__main__":
     initial_state = {
-        "user_query": "Forecast monthly inflation for India using macroeconomic data."
+        "user_query": "Forecast monthly inflation for India for the next 12 months using macroeconomic data."
     }
 
     final_state = graph.invoke(initial_state)
